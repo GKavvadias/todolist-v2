@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost:27017/todoListDB");
+mongoose.connect("mongodb+srv://george-admin:Test123@cluster0.nyphspq.mongodb.net/todoListDB");
 
 const itemsSchema = new mongoose.Schema({
   name: String
@@ -149,14 +149,17 @@ app.post("/delete", function(req, res) {
     });
   }
 
-
-
 });
 
 app.get("/about", function(req, res) {
   res.render("about");
 });
 
-app.listen(3000, function() {
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+
+app.listen(port, function() {
   console.log("Server started on port 3000");
 });
