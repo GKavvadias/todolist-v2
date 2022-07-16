@@ -2,3 +2,4 @@
 npm-debug.log
 .DS_Store
 /*.env
+mongodb+srv://george-admin:Test123@cluster0.nyphspq.mongodb.net/todoListDB
